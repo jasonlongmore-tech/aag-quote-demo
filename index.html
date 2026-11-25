@@ -338,6 +338,8 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 .tg input:checked+.trk::after{transform:translateX(18px)}
 .tg input:focus-visible+.trk{outline:3px solid var(--focus);outline-offset:2px}
 @media(max-width:559px){.tray.sl .opt:last-child{grid-column:1/-1}}
+@media(min-width:600px){#home-choices{grid-template-columns:1fr}}
+@media(min-width:760px){#home-choices{grid-template-columns:repeat(3,1fr)}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 <div class="wrap" id="app">
@@ -416,6 +418,19 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 <p>Frameless, semi-frameless or framed. Pick your look and watch the preview change.</p>
 <span class="go">Design a shower <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 </a>
+<a class="choice" href="#slider" id="go-slider">
+<svg class="ill" viewBox="0 0 240 150" aria-hidden="true"><defs><linearGradient id="c5g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--sky-a)"/><stop offset="1" style="stop-color:var(--sky-b)"/></linearGradient></defs>
+<rect x="20" y="10" width="200" height="130" style="fill:var(--wall)"/>
+<rect x="34" y="18" width="172" height="118" rx="3" style="fill:var(--surface);stroke:var(--accent)" stroke-width="4"/>
+<rect x="40" y="24" width="82" height="106" fill="url(#c5g)"/><rect x="118" y="24" width="82" height="106" fill="url(#c5g)" opacity=".9"/>
+<rect x="114" y="22" width="12" height="110" style="fill:var(--surface);stroke:var(--accent)" stroke-width="2"/>
+<polygon points="48,28 76,28 46,92 46,60" fill="#fff" opacity=".28"/><polygon points="130,28 156,28 128,88 128,56" fill="#fff" opacity=".22"/>
+<rect x="118" y="64" width="5" height="26" rx="2.5" style="fill:var(--head)"/><path d="M34 132h172" style="stroke:var(--accent)" stroke-width="5"/>
+<path d="M150 112q14-10 30 0M160 100q10-6 20 0" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/></svg>
+<h2>Sliding glass door</h2>
+<p>Foggy or broken glass, hard to slide, a lock that won't catch, or a whole new door.</p>
+<span class="go">Start with a door <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+</a>
 </div>
 <div class="hide" id="biz-choices">
 <div class="choices">
@@ -452,7 +467,7 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 <section class="view hide" id="view-window" data-view="window" aria-labelledby="h-window">
 <a class="back" href="#start">&larr; Back</a>
 <h1 id="h-window" tabindex="-1">Measure your window</h1>
-<p>Pick how you want to measure. We read the window type and size for you, and you can correct anything.</p>
+<p id="win-intro">Pick how you want to measure. We read the window type and size for you, and you can correct anything.</p>
 <div class="card"><div id="wm-wrap"></div><div class="note hide" id="wm-note" style="margin-bottom:0">In the real app, this opens the All About Glass iPhone app and needs no props. Android phones use the photo method, which only needs a light switch or outlet in the shot.</div></div>
 <div class="card diag" id="diag-card">
 <svg viewBox="0 0 150 150" role="img" aria-label="Diagram: a window with a light switch plate on the wall beside it, photo taken straight on">
@@ -500,8 +515,8 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 <div class="card hide" id="found"><h2>We found</h2><div id="found-rows"></div><div id="ref-wrap" style="margin-top:14px"></div><div id="found-tail"></div></div>
 <div class="note hide" id="tighten"><b>Tighten your price.</b> Want a firmer number? Take one more photo with a tape measure across the glass, or a sheet of paper taped flat on it.<div class="row" style="margin-top:10px"><button class="btn sm" type="button" id="tg-tape">Use a tape measure</button><button class="btn sm" type="button" id="tg-paper">Use a paper sheet</button></div><p class="small" id="tg-note" style="margin:8px 0 0;font-weight:700;color:var(--ok)"></p></div>
 <div class="card">
-<h2>2. About your window</h2>
-<div id="win-opts"></div>
+<h2 id="about-h2">2. About your window</h2>
+<div id="win-opts"></div><div id="sl-opts" class="hide"></div>
 </div>
 <details class="idbox" id="idbox">
 <summary>Help us identify your window <span class="small muted" id="id-cnt" style="margin-left:auto;font-weight:500">optional</span></summary>
@@ -557,7 +572,7 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 </div>
 <div class="row" style="margin-top:16px">
 <button class="btn primary" type="button" id="est-book">Book my free field measure</button>
-<a class="btn" href="#window">Add a window</a><a class="btn" href="#shower">Add a shower</a>
+<a class="btn" href="#window">Add a window</a><a class="btn" href="#shower">Add a shower</a><a class="btn" href="#slider">Add a sliding door</a>
 </div>
 </section>
 <!-- BOOK -->
@@ -850,7 +865,7 @@ e.preventDefault();recalc();
 });
 var end=function(){M.drag=null};
 cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
-$('#win-sample').addEventListener('click',function(){var s=getSample();
+$('#win-sample').addEventListener('click',function(){var s=curSample();
 REF='switch';M.isSample=true;setRefRadios();$('#win-landscape').checked=false;setBase(s.cv,s.paper.map(function(p){return p.slice()}),s.win.map(function(p){return p.slice()}));recalc();startRead('sample');
 $('#win-stage').scrollIntoView({block:'nearest'});});
 $('#win-file').addEventListener('change',function(e){
@@ -864,7 +879,7 @@ REF='switch';M.isSample=false;setRefRadios();setBase(b,uploadRef('switch',w,h),u
 im.onerror=function(){URL.revokeObjectURL(url)};
 im.src=url;
 });
-$('#win-landscape').addEventListener('change',function(){if(M.isSample&&REF==='paper')M.paper=getSample().refQuad('paper',this.checked);recalc()});
+$('#win-landscape').addEventListener('change',function(){if(M.isSample&&REF==='paper')M.paper=curSample().refQuad('paper',this.checked);recalc()});
 ['#win-w','#win-h'].forEach(function(s){$(s).addEventListener('input',function(){
 var o=$('#meas-out');o.classList.remove('hide');var d=curDims();
 o.innerHTML=d?'<div><span class="small muted">Using the size you typed</span><br><strong>'+fmtIn(d.w)+' × '+fmtIn(d.h)+' in</strong></div><div class="small" style="max-width:22em">Final size confirmed at the free field measure.</div>':'<div class="small">Enter both width and height.</div>';
@@ -881,6 +896,7 @@ return {range:rng(main,f[0],f[1]),glass:rng(glassP,f[0],f[1]),neu:rng(newP,f[0],
 function winOpts(o){return [lab(GLASS,o.glass)+' glass',o.grids==='yes'?'With grids':'No grids',lab(FLOOR,o.floor)]}
 function winTitle(o){return lab(TYPES,o.type)+' — '+(o.problem==='foggy'?'foggy glass replacement':o.problem==='crack'?'cracked glass replacement':'new window')}
 function priceWin(){
+if(PROD==='slider'){priceSlider();return}
 var d=curDims(),el=$('#win-price'),btn=$('#win-add');
 if(!d){el.innerHTML='<div class="lbl"><span>Your price range</span><span class="demo-tag">Demo — sample pricing</span></div><div class="big" style="font-size:1.2rem">Add a photo or type the size</div><p class="sub">Your range appears here and updates as you choose options.</p>';btn.disabled=true;stickyW('Add a size',true);renderFound();return}
 var c=winCalc(W,d.w,d.h);btn.disabled=false;stickyW(rangeTxt(c.range),false);
@@ -911,8 +927,9 @@ var n=Object.keys(M.ids).length;$('#id-cnt').textContent=n+' photo'+(n>1?'s':'')
 });
 }
 function addWindow(){
+if(PROD==='slider'){addSliderItem();return}
 var d=curDims();if(!d)return;var c=winCalc(W,d.w,d.h),thumb=null;
-if(MODE==='photo'&&M.base){thumb=composeThumb(M.base,M.paper,M.win,d.w,d.h)}else if(MODE==='scan'&&scanDone){var sm=getSample();thumb=composeThumb(sm.cv,sm.paper,sm.win,d.w,d.h)}
+if(MODE==='photo'&&M.base){thumb=composeThumb(M.base,M.paper,M.win,d.w,d.h)}else if(MODE==='scan'&&scanDone){var sm=curSample();thumb=composeThumb(sm.cv,sm.paper,sm.win,d.w,d.h)}
 var idn=Object.keys(M.ids).length;
 addItem({kind:'win',title:winTitle(W),dims:fmtIn(d.w)+' × '+fmtIn(d.h)+' in',opts:winOpts(W).concat(idn?[idn+' ID photo'+(idn>1?'s':'')]:[]),lo:c.range[0],hi:c.range[1],thumb:thumb});
 var st=$('#win-status');st.classList.remove('hide');setTimeout(function(){st.scrollIntoView({block:'nearest'})},0);
@@ -1038,7 +1055,7 @@ function renderEstimate(){
 var body=$('#est-body');
 $('#est-no').textContent='Estimate #'+todayNo();
 $('#est-date').textContent=new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
-if(!est.length){body.innerHTML='<p>Your estimate is empty. <a href="#window">Add a window</a> or <a href="#shower">add a shower</a> to get started.</p>';$('#est-book').disabled=true;return}
+if(!est.length){body.innerHTML='<p>Your estimate is empty. <a href="#window">Add a window</a> or <a href="#shower">add a shower</a> or <a href="#slider">add a sliding door</a> to get started.</p>';$('#est-book').disabled=true;return}
 $('#est-book').disabled=false;
 var lo=0,hi=0,h='';
 if(est.some(function(x){return x.ex}))h+='<div class="note">These two line items are <b>examples</b> so you can see how an estimate looks. Add your own and they will be replaced.</div>';
@@ -1188,14 +1205,19 @@ function setW(key,val){W[key]=val;var i=$('input[name="w-'+key+'"][value="'+val+
 function clearAuto(k){AUTO[k]=false;$$('.auto[data-k="'+k+'"]').forEach(function(n){n.remove()})}
 function markAuto(k,host){$$('.auto[data-k="'+k+'"]').forEach(function(n){n.remove()});host.forEach(function(h){if(h){var sp=document.createElement('span');sp.className='auto';sp.setAttribute('data-k',k);sp.textContent='Auto-filled';h.appendChild(sp)}})}
 function applyAuto(){
+if(PROD==='slider'){
+setSL('issue','foggy');setSL('panels','2');setSL('frame','vinyl');syncSlider();
+['issue','panels','frame'].forEach(function(k){AUTO[k]=true;var i=$('input[name="sl-'+k+'"]');markAuto(k,[i&&i.closest('fieldset').querySelector('legend')])});
+}else{
 setW('type','dh');setW('problem','foggy');setW('grids','no');
 ['type','problem','grids'].forEach(function(k){AUTO[k]=true;var i=$('input[name="w-'+k+'"]');markAuto(k,[i&&i.closest('fieldset').querySelector('legend')])});
+}
 AUTO.size=true;markAuto('size',[$('label[for="win-w"]'),$('label[for="win-h"]')]);
 }
 function renderFound(){
 var el=$('#found'),tg=$('#tighten');if(!FOUND){el.classList.add('hide');tg.classList.add('hide');return}
 var d=curDims(),k=FOUND.kind,R=REFS[REF];
-var rows=[['type','Type',lab(TYPES,W.type)+(AUTO.type?' (92% sure)':'')],['size','Size',d?fmtIn(d.w)+' \u00D7 '+fmtIn(d.h)+' in'+(k==='scan'?' (\u00B1\u00BC in)':''):'not set yet'],['ref','Measured using',k==='scan'?'Simulated 3D scan':R.n],['issue','Issue',{foggy:'Fogging between panes',crack:'Cracked glass',new:'Wants a new window'}[W.problem]],['grids','Grids',W.grids==='yes'?'Yes':'None'],['maker','Likely maker','Check the spacer text']];
+var rows=PROD==='slider'?slRows(d,k):[['type','Type',lab(TYPES,W.type)+(AUTO.type?' (92% sure)':'')],['size','Size',d?fmtIn(d.w)+' \u00D7 '+fmtIn(d.h)+' in'+(k==='scan'?' (\u00B1\u00BC in)':''):'not set yet'],['ref','Measured using',k==='scan'?'Simulated 3D scan':R.n],['issue','Issue',{foggy:'Fogging between panes',crack:'Cracked glass',new:'Wants a new window'}[W.problem]],['grids','Grids',W.grids==='yes'?'Yes':'None'],['maker','Likely maker','Check the spacer text']];
 if(k==='scan')rows.splice(2,1);
 var note=k==='sample'?'Demo result.'+(REF!=='switch'?' The sample photo only has a light switch, so the demo places other references for you.':''):k==='upload'?'Demo: automatic detection is simulated for your photo. The real app uses AI to find the window and the reference.':'Demo \u2014 simulated scan.';
 $('#found-rows').innerHTML=rows.map(function(r){return '<div class="fr"><span>'+r[1]+'</span><b>'+esc(r[2])+'</b><button class="btn sm" type="button" data-go="'+r[0]+'" aria-label="Change '+r[1].toLowerCase()+'">Change</button></div>'}).join('');
@@ -1208,7 +1230,7 @@ function clearRead(){readT.forEach(clearTimeout);readT=[]}
 function startRead(kind){
 clearRead();FOUND=null;renderFound();
 var p=$('#read-panel'),txt=$('#read-txt'),bar=$('#read-bar');
-var steps=['Finding the window edges','Looking for something of known size','Found a light switch plate (2\u00BE \u00D7 4\u00BD in)','Identifying the window type'];
+var steps=[PROD==='slider'?'Finding the door edges':'Finding the window edges','Looking for something of known size','Found a light switch plate (2\u00BE \u00D7 4\u00BD in)',PROD==='slider'?'Identifying the door type':'Identifying the window type'];
 function done(){p.classList.add('hide');applyAuto();FOUND={kind:kind};priceWin();var f=$('#found');if(f.scrollIntoView)f.scrollIntoView({block:'nearest'})}
 if(reduced()){done();return}
 p.classList.remove('hide');bar.style.transition='none';bar.style.width='0';txt.textContent='Reading your photo\u2026 '+steps[0];
@@ -1217,7 +1239,7 @@ void bar.offsetWidth;bar.style.transition='width 1.8s linear';bar.style.width='1
 readT.push(setTimeout(done,1800));
 }
 function drawScan(t,fin){
-var cv=$('#scan-cv'),c=cv.getContext('2d'),s=getSample(),w=cv.width,h=cv.height,k=w/720,lb=cssv('--lblue','#7eb8f7');
+var cv=$('#scan-cv'),c=cv.getContext('2d'),s=curSample(),w=cv.width,h=cv.height,k=w/720,lb=cssv('--lblue','#7eb8f7');
 c.drawImage(s.cv,0,0,w,h);c.fillStyle='rgba(5,15,35,.3)';c.fillRect(0,0,w,h);
 var sy=fin?h:Math.min(h,t/3.6*h),x,y;
 c.fillStyle=lb;
@@ -1230,13 +1252,13 @@ c.fillStyle='rgba(10,22,40,.8)';c.fillRect(w/2-92,h-34,184,22);c.fillStyle='#fff
 var q=fin?1:Math.max(0,Math.min(1,(t-1.2)/2.4));q=q*q*(3-2*q);
 $('#sr-d').textContent=(fin?6.2:Math.min(6.2,t/1.2*6.2)).toFixed(1)+' ft';
 $('#sr-f').textContent=(fin||t>=1.2)?'Window found':'Searching…';
-$('#sr-w').textContent=(fin||t>=1.2)?fmtIn(toEighth(35.375*q))+' in':'–';
-$('#sr-h').textContent=(fin||t>=1.2)?fmtIn(toEighth(59.25*q))+' in':'–';
+$('#sr-w').textContent=(fin||t>=1.2)?fmtIn(toEighth(SDIM()[0]*q))+' in':'–';
+$('#sr-h').textContent=(fin||t>=1.2)?fmtIn(toEighth(SDIM()[1]*q))+' in':'–';
 }
 function scanFinish(){
 scanDone=true;$('#scan-start').disabled=false;$('#scan-start').textContent='Scan again';
-$('#win-w').value=35.375;$('#win-h').value=59.25;
-var o=$('#meas-out');o.classList.remove('hide');o.innerHTML='<div><span class="small muted">Scanned (simulated)</span><br><strong>35⅜ × 59¼ in</strong></div><div class="small" style="max-width:22em">±¼ in, field verified before ordering.</div>';
+$('#win-w').value=SDIM()[0];$('#win-h').value=SDIM()[1];
+var o=$('#meas-out');o.classList.remove('hide');o.innerHTML='<div><span class="small muted">Scanned (simulated)</span><br><strong>'+fmtIn(SDIM()[0])+' \u00D7 '+fmtIn(SDIM()[1])+' in</strong></div><div class="small" style="max-width:22em">±¼ in, field verified before ordering.</div>';
 applyAuto();FOUND={kind:'scan'};priceWin();
 }
 function startScan(){
@@ -1274,7 +1296,7 @@ var b=e.target.closest('[data-go]');if(!b)return;var g=b.getAttribute('data-go')
 if(g==='ref'){t=$('input[name="ref-pick"]:checked')}
 else if(g==='maker'){$('#idbox').open=true;t=$('#idbox summary')}
 else if(g==='size')t=$('#win-w');
-else t=$('input[name="w-'+(g==='issue'?'problem':g)+'"]:checked');
+else t=goTarget(g);
 if(t){t.scrollIntoView({block:'center'});if(t.focus)t.focus()}
 });
 }
@@ -1486,36 +1508,170 @@ return [[x,y],[x+bw,y],[x+bw,y+bh],[x,y+bh]];
 function uploadWin(w,h){return [[.08*w,.1*h],[.7*w,.1*h],[.7*w,.9*h],[.08*w,.9*h]]}
 function setRef(k){
 REF=k;setRefRadios();
-if(M.base&&k!=='tape')M.paper=M.isSample?getSample().refQuad(k,$('#win-landscape').checked):uploadRef(k,M.base.width,M.base.height);
+if(M.base&&k!=='tape')M.paper=M.isSample?curSample().refQuad(k,$('#win-landscape').checked):uploadRef(k,M.base.width,M.base.height);
 if(k==='tape'){var d=curDims();if(!$('#tape-in').value&&d)$('#tape-in').value=d.w}
 syncRefUI();recalc();
 }
+/* ---------- sliding glass doors ---------- */
+var PROD='window';
+var SLD={issue:'foggy',panels:'2',frame:'vinyl',glass:'lowe',screen:'keep',npan:'1'};
+var SL_ISSUE=[['foggy','Foggy glass'],['broken','Broken glass'],['slide','Hard to slide (rollers/track)'],['lock','Lock or handle'],['whole','Replace the whole door']];
+var SL_FRAME=[['vinyl','Vinyl'],['alum','Aluminum'],['fiber','Fiberglass']];
+var SL_GLASS=[['lowe','Clear Low-E'],['tint','Low-E + tint'],['obs','Obscure/privacy']];
+function SDIM(){return PROD==='slider'?[71.5,79.5]:[35.375,59.25]}
+function curSample(){return PROD==='slider'?getSliderSample():getSample()}
+function setSL(k,v){SLD[k]=v;var i=$('input[name="sl-'+k+'"][value="'+v+'"]');if(i)i.checked=true}
+function buildSliderUI(){
+$('#sl-opts').innerHTML='<div id="sl-g-issue">'+tray('sl-issue',"What's wrong",SL_ISSUE,SLD.issue,5,1)+'</div>'+
+'<div id="sl-g-panels">'+tray('sl-panels','Panels',[['2','2'],['3','3'],['4','4']],SLD.panels,3,3)+'</div>'+
+'<div id="sl-g-npan">'+tray('sl-npan','How many panels need glass?',[['1','1 panel'],['2','2 panels']],SLD.npan,2,2)+'</div>'+
+'<div id="sl-g-frame">'+tray('sl-frame','Frame (for full replacement)',SL_FRAME,SLD.frame,3,3)+'</div>'+
+'<div id="sl-g-glass">'+tray('sl-glass','Glass',SL_GLASS,SLD.glass,3,3)+'</div>'+
+'<div id="sl-g-screen">'+tray('sl-screen','Screen door',[['keep','Keep mine'],['new','New screen']],SLD.screen,2,2)+'</div>'+
+'<p class="note" style="margin-bottom:0">Door glass is always tempered safety glass (required by code).</p>';
+$('#sl-opts').addEventListener('change',function(e){var t=e.target;if(t.name&&t.name.indexOf('sl-')===0){var k=t.name.slice(3);SLD[k]=t.value;clearAuto(k);syncSlider();priceWin()}});
+syncSlider();
+}
+function syncSlider(){
+var g=SLD.issue==='foggy'||SLD.issue==='broken',w=SLD.issue==='whole';
+[['panels',SLD.issue!=='lock'],['npan',g],['frame',w],['glass',g||w],['screen',w]].forEach(function(r){$('#sl-g-'+r[0]).classList.toggle('hide',!r[1])});
+}
+function slCalc(o,w,h){
+var P=+o.panels,f=RF(),tn=o.glass==='tint'||o.glass==='obs';
+var pg=Math.max(0,w/P-4)*Math.max(0,h-6)/144,glassP=((16*pg+195)*(tn?1.1:1))*(+o.npan);
+var wholeP={2:1850,3:2850,4:3650}[P]*{vinyl:1,alum:1.15,fiber:1.45}[o.frame]+450+(tn?150:0)+(o.screen==='new'?120:0);
+var isG=o.issue==='foggy'||o.issue==='broken',main=isG?glassP:o.issue==='slide'?225+75*(P-2):o.issue==='lock'?165:wholeP;
+return {range:rng(main,f[0],f[1]),glass:rng(glassP,f[0],f[1]),whole:rng(wholeP,f[0],f[1]),gMid:glassP,wMid:wholeP,isG:isG};
+}
+function slTitle(){return SLD.panels+'-panel sliding door — '+{foggy:'foggy glass replacement',broken:'broken glass replacement',slide:'rollers and track service',lock:'lock or handle repair',whole:'full door replacement'}[SLD.issue]}
+function slOpts(){
+var o=[],g=SLD.issue==='foggy'||SLD.issue==='broken';
+if(g)o.push(SLD.npan+' panel'+(SLD.npan==='1'?'':'s')+' reglazed',lab(SL_GLASS,SLD.glass)+' tempered glass');
+if(SLD.issue==='whole'){o.push(lab(SL_FRAME,SLD.frame)+' frame',lab(SL_GLASS,SLD.glass)+' tempered glass',SLD.screen==='new'?'New screen':'Keep existing screen')}
+if(!o.length)o.push('Service visit');
+return o;
+}
+function slRows(d,k){
+var iss={foggy:'Foggy glass',broken:'Broken glass',slide:'Hard to slide (rollers/track)',lock:'Lock or handle',whole:'Replace the whole door'}[SLD.issue];
+return [['type','Type',SLD.panels+'-panel sliding door'+(AUTO.panels?' (90% sure)':'')],['size','Size',d?fmtIn(d.w)+' × '+fmtIn(d.h)+' in'+(k==='scan'?' (±¼ in)':''):'not set yet'],['ref','Measured using',k==='scan'?'Simulated 3D scan':REFS[REF].n],['issue','Issue',iss],['frame','Frame',lab(SL_FRAME,SLD.frame)]];
+}
+function goTarget(g){
+if(PROD==='slider'){
+var n={type:'panels',issue:'issue',frame:'frame'}[g]||g;
+if(n==='frame'&&SLD.issue!=='whole'){setSL('issue','whole');syncSlider();priceWin()}
+return $('input[name="sl-'+n+'"]:checked');
+}
+return $('input[name="w-'+(g==='issue'?'problem':g)+'"]:checked');
+}
+function priceSlider(){
+var d=curDims(),el=$('#win-price'),btn=$('#win-add');
+if(!d){el.innerHTML='<div class="lbl"><span>Your price range</span><span class="demo-tag">Demo — sample pricing</span></div><div class="big" style="font-size:1.2rem">Add a photo or type the size</div><p class="sub">Your range appears here and updates as you choose options.</p>';btn.disabled=true;stickyW('Add a size',true);renderFound();return}
+var c=slCalc(SLD,d.w,d.h);btn.disabled=false;stickyW(rangeTxt(c.range),false);
+var what={foggy:'Glass replacement, '+SLD.npan+' panel'+(SLD.npan==='1'?'':'s'),broken:'Glass replacement, '+SLD.npan+' panel'+(SLD.npan==='1'?'':'s'),slide:'Rollers and track service',lock:'Lock or handle repair',whole:'Full door replacement, installed'}[SLD.issue];
+var h='<div class="lbl"><span>Your price range</span><span class="demo-tag">Demo — sample pricing</span></div><div class="big">'+rangeTxt(c.range)+'</div>';
+if(c.isG){var mx=Math.max(c.glass[1],c.whole[1])*1.12;h+=rbar(c.glass[0],c.glass[1],mx,'Glass only',false)+rbar(c.whole[0],c.whole[1],mx,'New door',true)}
+else h+=rbar(c.range[0],c.range[1],Math.max(c.range[1]*1.25,1500),'Your range',false);
+if(tight())h+='<p class="sub" style="color:var(--ok);font-weight:700">Range tightened with '+REFS[REF].n+'.</p>';
+h+='<p class="sub">'+what+' · '+fmtIn(d.w)+' × '+fmtIn(d.h)+' in. Final price after free field measure.</p>';
+if(c.isG){var diff=r5(c.wMid-c.gMid);h+='<div class="save"><b>Glass only vs new door.</b> New glass: '+rangeTxt(c.glass)+'. A whole new door: '+rangeTxt(c.whole)+'. '+(diff>0?'Replacing just the glass could save about <b>'+money(diff)+'</b>.':'The two are close, so ask Darcey which is better.')+'</div>'}
+el.innerHTML=h;countUp($('.big',el),c.range[0],c.range[1],'win');renderFound();
+}
+function addSliderItem(){
+var d=curDims();if(!d)return;var c=slCalc(SLD,d.w,d.h),thumb=null;
+if(MODE==='photo'&&M.base)thumb=composeThumb(M.base,M.paper,M.win,d.w,d.h);
+else if(MODE==='scan'&&scanDone){var sm=curSample();thumb=composeThumb(sm.cv,sm.paper,sm.win,d.w,d.h)}
+addItem({kind:'win',title:slTitle(),dims:fmtIn(d.w)+' × '+fmtIn(d.h)+' in',opts:slOpts(),lo:c.range[0],hi:c.range[1],thumb:thumb});
+var st=$('#win-status');st.classList.remove('hide');setTimeout(function(){st.scrollIntoView({block:'nearest'})},0);
+st.innerHTML='<p><svg class="ck" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><b>Added to your estimate.</b> You can measure another door above, or <a href="#estimate">view your estimate</a>.</p>';
+}
+function resetMeasure(){
+M.base=null;M.paper=null;M.win=null;M.isSample=false;REF='switch';setRefRadios();clearRead();FOUND=null;scanRun++;scanDone=false;
+['#win-w','#win-h','#tape-in'].forEach(function(q){$(q).value=''});
+['#meas-out','#win-stage','#read-panel'].forEach(function(q){$(q).classList.add('hide')});
+['type','problem','grids','size','issue','panels','frame'].forEach(clearAuto);
+$('#win-status').classList.add('hide');syncRefUI();renderFound();
+}
+function setProduct(prod){
+PROD=prod;resetMeasure();var sl=prod==='slider';
+$('#h-window').textContent=sl?'Measure your sliding door':'Measure your window';
+$('#win-intro').textContent=sl?'Pick how you want to measure. We read the door size and style for you, and you can correct anything.':'Pick how you want to measure. We read the window type and size for you, and you can correct anything.';
+$('#about-h2').textContent=sl?'2. About your door':'2. About your window';
+$('#win-opts').classList.toggle('hide',sl);$('#sl-opts').classList.toggle('hide',!sl);$('#idbox').classList.toggle('hide',sl);
+syncSlider();if(MODE==='scan')drawScan(0,false);
+}
+var sliderCache=null;
+function getSliderSample(){
+if(sliderCache)return sliderCache;
+var cv=document.createElement('canvas');cv.width=720;cv.height=900;var c=cv.getContext('2d');
+var WW=71.5,HH=79.5,i;
+var Hp=solveH([[0,0],[WW,0],[WW,HH],[0,HH]],[[30,150],[590,156],[598,752],[26,758]]);
+function ip(x,y){return applyH(Hp,[x,y])}
+function path(pts){c.beginPath();pts.forEach(function(p,j){j?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])});c.closePath()}
+function rect(x0,y0,x1,y1){return [ip(x0,y0),ip(x1,y0),ip(x1,y1),ip(x0,y1)]}
+var g=c.createLinearGradient(0,0,720,900);g.addColorStop(0,'#dcd6ca');g.addColorStop(1,'#c8c1b2');c.fillStyle=g;c.fillRect(0,0,720,900);
+for(i=0;i<1400;i++){c.fillStyle='rgba(90,76,58,'+(Math.random()*.05)+')';c.fillRect(Math.random()*720,Math.random()*900,2,2)}
+path(rect(-40,HH+.5,WW+40,HH+70));var fg=c.createLinearGradient(0,750,0,900);fg.addColorStop(0,'#a58c6c');fg.addColorStop(1,'#7d684f');c.fillStyle=fg;c.fill();
+c.fillStyle='#efece6';path(rect(-40,HH-4,-3,HH+.5));c.fill();path(rect(WW+3,HH-4,WW+40,HH+.5));c.fill();
+path(rect(-3.5,-3.5,WW+3.5,HH+.5));c.fillStyle='#f2f0ea';c.fill();c.strokeStyle='rgba(60,50,35,.3)';c.lineWidth=2;c.stroke();
+path(rect(0,0,WW,HH));var sk=c.createLinearGradient(30,150,30,758);sk.addColorStop(0,'#a9cbe6');sk.addColorStop(.6,'#d3e5f1');sk.addColorStop(1,'#7fa06e');c.fillStyle=sk;c.fill();
+c.save();path(rect(0,0,WW,HH));c.clip();
+c.fillStyle='rgba(70,110,74,.6)';[[10,56,12],[26,60,14],[50,58,13],[64,62,12]].forEach(function(t){var q=ip(t[0],t[1]);c.beginPath();c.arc(q[0],q[1],t[2]*6,0,6.3);c.fill()});
+c.restore();
+function panel(x0,x1,fog){
+path(rect(x0,0,x1,HH));c.fillStyle='rgba(255,255,255,.1)';c.fill();
+c.fillStyle='#ece9e2';
+[[x0,0,x1,2.5],[x0,HH-4,x1,HH],[x0,0,x0+2.2,HH],[x1-2.2,0,x1,HH]].forEach(function(r){path(rect(r[0],r[1],r[2],r[3]));c.fill();c.strokeStyle='rgba(60,50,35,.28)';c.lineWidth=1;c.stroke()});
+if(fog){c.save();path(rect(x0+2.2,2.5,x1-2.2,HH-4));c.clip();
+[[x0+14,56,16],[x0+26,44,14],[x0+8,36,10]].forEach(function(f){var p=ip(f[0],f[1]),r=f[2]*8;var rg=c.createRadialGradient(p[0],p[1],2,p[0],p[1],r);rg.addColorStop(0,'rgba(255,255,255,.6)');rg.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=rg;c.fillRect(0,0,720,900)});
+c.restore()}
+c.fillStyle='rgba(255,255,255,.2)';path([ip(x0+5,3),ip(x0+14,3),ip(x0+3,HH*.5),ip(x0+2.2,HH*.5)]);c.fill();
+}
+panel(0,37.5,false);panel(34.5,WW,true);
+path(rect(35.2,36,36.8,50));c.fillStyle='#2b2f36';c.fill();
+path(rect(0,HH-1.2,WW,HH));c.fillStyle='#bdb9ae';c.fill();
+var sx0=WW+6,sy0=HH+2-48-2.25,sx1=sx0+2.75,sy1=sy0+4.5;
+c.fillStyle='rgba(0,0,0,.2)';path(rect(sx0+.2,sy0+.2,sx1+.3,sy1+.35));c.fill();
+path(rect(sx0,sy0,sx1,sy1));c.fillStyle='#f8f5eb';c.fill();c.strokeStyle='#c9c3b1';c.lineWidth=1.5;c.stroke();
+path(rect(sx0+.95,sy0+1.55,sx1-.95,sy0+3));c.fillStyle='#ebe6d6';c.fill();c.strokeStyle='#b9b29d';c.lineWidth=1;c.stroke();
+[sy0+.6,sy1-.6].forEach(function(yy){var q=ip(sx0+1.375,yy);c.beginPath();c.arc(q[0],q[1],1.6,0,6.3);c.fillStyle='#d6d0bf';c.fill()});
+var sh=c.createLinearGradient(60,100,640,820);sh.addColorStop(0,'rgba(255,255,255,.12)');sh.addColorStop(.5,'rgba(255,255,255,0)');sh.addColorStop(1,'rgba(0,0,0,.07)');c.fillStyle=sh;c.fillRect(0,0,720,900);
+function refQuad(k,land){
+if(k==='outlet')return rect(WW+6,70,WW+8.75,74.5);
+if(k==='brick')return rect(WW+5,25,WW+10,33);
+if(k==='paper')return land?rect(WW+2,5,WW+13,13.5):rect(WW+2,5,WW+10.5,16);
+return rect(sx0,sy0,sx1,sy1);
+}
+sliderCache={cv:cv,paper:refQuad('switch'),win:rect(0,0,WW,HH),refQuad:refQuad};
+return sliderCache;
+}
 /* ---------- router ---------- */
-var ROUTES=['start','window','shower','estimate','book','biz-request','biz-portal'],first=true,AUD='home';
+var ROUTES=['start','window','slider','shower','estimate','book','biz-request','biz-portal'],first=true,AUD='home';
 function setAud(a){AUD=a;$('#aud-0').checked=a==='home';$('#aud-1').checked=a==='biz';$('#home-choices').classList.toggle('hide',a!=='home');$('#how-home').classList.toggle('hide',a!=='home');$('#biz-choices').classList.toggle('hide',a!=='biz')}
 function route(){
 var r=(location.hash||'').replace('#','').split('?')[0];if(ROUTES.indexOf(r)<0)r='start';
-$$('.view').forEach(function(v){v.classList.toggle('hide',v.getAttribute('data-view')!==r)});
+var vr=r==='slider'?'window':r;
+if(r==='window'||r==='slider'){var pd=r==='slider'?'slider':'window';if(PROD!==pd)setProduct(pd)}
+$$('.view').forEach(function(v){v.classList.toggle('hide',v.getAttribute('data-view')!==vr)});
 var isBiz=r.indexOf('biz-')===0;if(isBiz)setAud('biz');
 $('#steps-nav').classList.toggle('hide',isBiz||r==='start');$('#steps-biz-nav').classList.toggle('hide',!isBiz);
 $$('#steps-biz a').forEach(function(a){if(a.getAttribute('data-step')===r)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current')});
 if(r==='biz-portal')renderPortal();
 if(r==='biz-request')bzReset();
-var pm={start:25,window:50,shower:50,estimate:75,book:100,'biz-request':50,'biz-portal':100};
+var pm={start:25,window:50,slider:50,shower:50,estimate:75,book:100,'biz-request':50,'biz-portal':100};
 $('#steps').style.setProperty('--p',pm[r]+'%');$('#steps-biz').style.setProperty('--p',pm[r]+'%');
-var step=(r==='window'||r==='shower')?'measure':r;
+var step=(r==='window'||r==='shower'||r==='slider')?'measure':r;
 $$('#steps a').forEach(function(a){if(a.getAttribute('data-step')===step)a.setAttribute('aria-current','step');else a.removeAttribute('aria-current')});
-$('#step-measure').setAttribute('href',r==='shower'?'#shower':'#window');
+$('#step-measure').setAttribute('href',r==='shower'?'#shower':r==='slider'?'#slider':'#window');
 if(r==='estimate')renderEstimate();
 if(r==='book'){renderBook();if(!BK.done){$('#bk-flow').classList.remove('hide');$('#bk-confirm').classList.add('hide')}}
-if(r==='window')priceWin();
+if(r==='window'||r==='slider')priceWin();
 if(r==='shower')syncShower();
-if(!first){window.scrollTo(0,0);var h=$('#h-'+r);if(h)h.focus({preventScroll:true})}
+if(!first){window.scrollTo(0,0);var h=$('#h-'+vr);if(h)h.focus({preventScroll:true})}
 first=false;
 }
 /* ---------- init ---------- */
 function init(){
-seedAppts();buildAdmin();buildMode();buildBiz();$('#win-add2').addEventListener('click',addWindow);$('#sh-add2').addEventListener('click',addShower);$('#aud-0').closest('.tray').addEventListener('change',function(e){if(e.target.name==='aud')setAud(e.target.value)});
+buildSliderUI();seedAppts();buildAdmin();buildMode();buildBiz();$('#win-add2').addEventListener('click',addWindow);$('#sh-add2').addEventListener('click',addShower);$('#aud-0').closest('.tray').addEventListener('change',function(e){if(e.target.name==='aud')setAud(e.target.value)});
 buildWinUI();buildShowerUI();initCanvas();seedExamples();badge();
 $('#bk-days').addEventListener('change',function(e){if(e.target.name==='bk-day'){BK.day=e.target.value;BK.slot=null;renderSlots();setErr('e-slot','')}});
 $('#bk-slots').addEventListener('change',function(e){if(e.target.name==='bk-slot'){BK.slot=parseInt(e.target.value,10);setErr('e-slot','')}});
