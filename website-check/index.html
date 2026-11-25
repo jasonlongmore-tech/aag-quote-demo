@@ -1,0 +1,291 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}</style></head><body>
+<title>All About Glass Website Check</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: single readable column, a navy masthead, then prioritized fix list and reference tables. */
+:root{
+  --bg:#f7f9fc; --surface:#ffffff; --ink:#0a1628; --text:#3d4a5c; --muted:#6b7a8f;
+  --line:#d8e2ec; --blue:#3178c6; --blue-soft:#e6f0fa; --orange:#ff6b35;
+  --good:#1f8a4c; --good-soft:#e5f5ec; --warn:#b35c00; --warn-soft:#fff1e3; --bad:#b91c1c; --bad-soft:#fdecec;
+  --mast:#0a1628; --mast-ink:#ffffff; --mast-sub:#7eb8f7;
+  --display:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#08111f; --surface:#0f1b2e; --ink:#eef3fa; --text:#c3cedd; --muted:#8a9ab0;
+  --line:#22324a; --blue:#7eb8f7; --blue-soft:#132842; --orange:#ff7b4a;
+  --good:#5fd08d; --good-soft:#0f2a1c; --warn:#ffb15c; --warn-soft:#2e1f0d; --bad:#ff8a8a; --bad-soft:#341414;
+  --mast:#050c17; --mast-ink:#ffffff; --mast-sub:#7eb8f7; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#08111f; --surface:#0f1b2e; --ink:#eef3fa; --text:#c3cedd; --muted:#8a9ab0;
+  --line:#22324a; --blue:#7eb8f7; --blue-soft:#132842; --orange:#ff7b4a;
+  --good:#5fd08d; --good-soft:#0f2a1c; --warn:#ffb15c; --warn-soft:#2e1f0d; --bad:#ff8a8a; --bad-soft:#341414;
+  --mast:#050c17; --mast-ink:#ffffff; --mast-sub:#7eb8f7; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:16px/1.6 var(--body);margin:0}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.mast{background:var(--mast);color:var(--mast-ink);margin-top:calc(-1 * env(safe-area-inset-top, 0px));padding-top:calc(env(safe-area-inset-top, 0px) + 2.5rem);padding-bottom:2.25rem}
+.eyebrow{font:600 .75rem/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--mast-sub)}
+h1{font:800 clamp(1.8rem,5vw,2.5rem)/1.15 var(--display);margin:.6rem 0 .5rem;text-wrap:balance;color:var(--mast-ink)}
+.mast p{margin:0;color:#c9d6e6;max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;margin-top:1rem;font-size:.85rem;color:#9fb2c9}
+main{padding-block:2rem 3rem;display:grid;gap:2.5rem}
+h2{font:800 1.35rem/1.25 var(--display);color:var(--ink);margin:0 0 .75rem;text-wrap:balance}
+h3{font:700 1rem/1.35 var(--display);color:var(--ink);margin:0}
+p{margin:.4rem 0;max-width:68ch}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.75rem}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1rem}
+.stat b{display:block;font:800 1.5rem/1.1 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+.stat span{font-size:.85rem;color:var(--muted)}
+.fixes{list-style:none;margin:0;padding:0;display:grid;gap:.75rem;counter-reset:fx}
+.fix{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--sev);border-radius:var(--r);padding:1rem 1.1rem;counter-increment:fx}
+.fix header{display:flex;flex-wrap:wrap;align-items:baseline;gap:.4rem .75rem}
+.fix header h3::before{content:counter(fx) ". ";color:var(--muted)}
+.tag{font:600 .7rem/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:.3rem .45rem;border-radius:4px;color:var(--sev);background:var(--sev-soft)}
+.fix p{font-size:.95rem}
+.fix .how{color:var(--muted);font-size:.9rem}
+.hi{--sev:var(--bad);--sev-soft:var(--bad-soft)}
+.md{--sev:var(--warn);--sev-soft:var(--warn-soft)}
+.lo{--sev:var(--blue);--sev-soft:var(--blue-soft)}
+.good{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+.good li{display:flex;gap:.6rem;align-items:flex-start}
+.good svg{flex:none;margin-top:.3rem;color:var(--good)}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.92rem}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 .75rem/1.2 var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+code{font:500 .85em/1 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--blue-soft);color:var(--ink);padding:.1rem .3rem;border-radius:3px;word-break:break-all}
+.note{font-size:.85rem;color:var(--muted)}
+.callout{background:var(--blue-soft);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem}
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1rem;align-items:start}
+@media (max-width:640px){.calc{grid-template-columns:minmax(0,1fr)}}
+.inputs{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1rem 1.1rem;display:grid;gap:.75rem}
+.inputs fieldset{border:0;margin:0;padding:0;display:grid;gap:.6rem}
+.inputs legend{font:700 .95rem/1.3 var(--display);color:var(--ink);margin-bottom:.4rem;padding:0}
+.field{display:grid;grid-template-columns:minmax(0,1fr) 7.5rem;gap:.6rem;align-items:center}
+.field label{font-size:.88rem;line-height:1.35}
+.field input{width:100%;font:600 .95rem/1 var(--body);font-variant-numeric:tabular-nums;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:.5rem .55rem;text-align:right}
+.field input:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.results{background:var(--mast);color:var(--mast-ink);border-radius:var(--r);padding:1.1rem 1.2rem;display:grid;gap:.9rem;position:sticky;top:calc(env(safe-area-inset-top, 0px) + 12px)}
+.results .big{font:800 2.2rem/1 var(--display);font-variant-numeric:tabular-nums;color:var(--mast-ink)}
+.results .big small{font:500 .9rem/1 var(--body);color:#9fb2c9}
+.results .lbl{font:600 .72rem/1 var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--mast-sub)}
+.rows{display:grid;gap:.35rem;font-size:.9rem}
+.rows div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:.35rem}
+.rows div:last-child{border-bottom:0}
+.rows b{font-variant-numeric:tabular-nums;color:var(--mast-ink)}
+.rows span{color:#c9d6e6}
+.results .note{color:#9fb2c9}
+.gains{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.75rem}
+.gain{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:.9rem 1rem}
+.gain h3{font-size:.95rem;margin-bottom:.3rem}
+.gain p{font-size:.9rem;margin:0}
+footer{border-top:1px solid var(--line);padding-block:1.25rem 2rem;font-size:.85rem;color:var(--muted)}
+a{color:var(--blue)}
+a:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="eyebrow">Website &amp; Google check-up</div>
+    <h1>All About Glass of Colorado</h1>
+    <p>A look at allaboutglass.co and his Google listing, done the way a customer would see them. No logins, nothing changed. The site is in good shape overall; a handful of small fixes would help Google trust it more. At the end: what a quote app could save you each month.</p>
+    <div class="meta"><span>Checked November 24, 2026</span><span>allaboutglass.co</span><span>(303) 618-0417</span></div>
+  </div>
+</header>
+
+<div class="wrap">
+<main>
+
+  <section aria-labelledby="glance">
+    <h2 id="glance">At a glance</h2>
+    <div class="summary">
+      <div class="stat"><b>4.8★ · 103</b><span>Google rating and reviews</span></div>
+      <div class="stat"><b>#1</b><span>Google result when you search his company name</span></div>
+      <div class="stat"><b>4</b><span>Different addresses listed around the web</span></div>
+      <div class="stat"><b>1</b><span>Leftover template page still live</span></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="working">
+    <h2 id="working">What's already working</h2>
+    <ul class="good">
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2"/></svg><span><b>A clear niche.</b> "Foggy windows? Replace the glass, not the frame" is a strong, specific message most competitors don't lead with.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2"/></svg><span><b>An instant price calculator</b> on the homepage that works. A 36 × 60 in clear unit returned $450–$660 installed.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2"/></svg><span><b>A page for every service</b> (shower doors, windows, sliders, storefront, commercial) and city pages for the metro area.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2"/></svg><span><b>Strong Google reviews</b> (4.8 from 103), an A+ BBB rating, and the "Book online" button turned on in his Google listing.</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2"/></svg><span><b>Phone number is the same everywhere</b> I looked, which matters a lot to Google.</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="fixes">
+    <h2 id="fixes">Fixes, most important first</h2>
+    <ol class="fixes">
+      <li class="fix hi">
+        <header><h3>Pick one address and use it everywhere</h3><span class="tag">High</span></header>
+        <p>Google compares a business's name, address and phone across the web. Right now his listings point to four different places, which makes Google less confident about where he is and can push him down in the Maps results.</p>
+        <p class="how">Fix: decide on the address (or "service area only, Denver metro") and update Google, BBB, Yelp, MapQuest and the hidden business info in the website's code to match. The table below lists each one.</p>
+      </li>
+      <li class="fix hi">
+        <header><h3>Remove the leftover template page</h3><span class="tag">High</span></header>
+        <p>The page at <code>allaboutglass.co/service-areas</code> is an unfinished template. Its browser title reads "{Business Name} - {Main/broad Business service} in {Service Area}", the headline says "Concrete and Design in Orinda, CA", and the body is placeholder Latin text. It's listed in the site's sitemap, so Google can find it and show it.</p>
+        <p class="how">Fix: delete it (the real page is <code>/areas-we-serve</code>) or redirect it there, and remove it from the sitemap.</p>
+      </li>
+      <li class="fix md">
+        <header><h3>Merge the duplicate city pages</h3><span class="tag">Medium</span></header>
+        <p>Boulder and Highlands Ranch each have two pages, for example <code>/service-area/glass-installation-and-repair-boulder-co</code> and <code>/glass-installation-and-repair-boulder-co</code>. Two near-identical pages compete with each other in Google.</p>
+        <p class="how">Fix: keep one of each and redirect the other.</p>
+      </li>
+      <li class="fix md">
+        <header><h3>Update the review numbers on the site</h3><span class="tag">Medium</span></header>
+        <p>The homepage says "4.7, based on 64 Google Reviews". Google now shows 4.8 from 103. Showing the current, higher number is free credibility.</p>
+        <p class="how">Fix: update the text, or use a live review widget so it never goes stale.</p>
+      </li>
+      <li class="fix md">
+        <header><h3>Make the hours match</h3><span class="tag">Medium</span></header>
+        <p>The site header says Mon–Fri 8 am–5 pm; the Contact page says Mon–Sun 8 am–5 pm. Google's listing should match whichever is true.</p>
+      </li>
+      <li class="fix md">
+        <header><h3>Line up the price messaging</h3><span class="tag">Medium</span></header>
+        <p>The homepage says glass-only replacement "typically runs $200–$500", but the calculator returns $450–$660 for a common 36 × 60 window. A customer who sees both may feel baited.</p>
+        <p class="how">Fix: change the headline range to "from $200" or match it to what the calculator actually gives for typical sizes.</p>
+      </li>
+      <li class="fix lo">
+        <header><h3>Fix the repeated heading</h3><span class="tag">Quick</span></header>
+        <p>In "6 Signs Your IG Unit Has Failed", the last card is titled "Cold Spots or Drafts" again, but it describes cracked or broken glass.</p>
+        <p class="how">Fix: rename it "Cracked or Broken Glass".</p>
+      </li>
+      <li class="fix lo">
+        <header><h3>Check the owner name on directory sites</h3><span class="tag">Quick</span></header>
+        <p>MapQuest and Trustindex list the owner as "Darcey Levy". If that's out of date, update or claim those listings.</p>
+      </li>
+      <li class="fix lo">
+        <header><h3>Website and email use different domains</h3><span class="tag">Note</span></header>
+        <p>The site is <code>allaboutglass.co</code>; the email is <code>@allaboutglassco.com</code>. That may be on purpose. If not, matching them looks more polished and avoids customers typing the wrong one.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="nap">
+    <h2 id="nap">Where each listing says he is</h2>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>Listing</th><th>Address shown</th><th>Rating</th></tr></thead>
+        <tbody>
+          <tr><td>Google Business Profile</td><td>Denver, CO 80016 (no street; the map pin sits near Lowry)</td><td class="num">4.8 · 103 reviews</td></tr>
+          <tr><td>Website (hidden business info)</td><td>103 E 16th Ave, Denver 80203</td><td class="num">4.7 · 64 (on page)</td></tr>
+          <tr><td>BBB</td><td>1920 W Quincy Ave, Englewood 80110</td><td class="num">A+, accredited</td></tr>
+          <tr><td>MapQuest</td><td>Titan Way, Denver 80239</td><td class="num">—</td></tr>
+          <tr><td>Yelp</td><td>Denver</td><td class="num">4.0 · 7 reviews</td></tr>
+          <tr><td>Contact page</td><td>"Denver, Colorado"</td><td class="num">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">ZIP 80016 is the Aurora / Southlands area, which doesn't match where the Google map pin sits. Worth checking inside his Google profile settings.</p>
+  </section>
+
+  <section aria-labelledby="search">
+    <h2 id="search">How he shows up in search</h2>
+    <p>Searching his company name puts his website first, with his Google panel beside it. People who already know him find him easily.</p>
+    <p>For general searches like "foggy window glass replacement Denver" and "frameless shower doors Denver", the results were led by Glass Doctor, The Glass Guru, Gatsby Glass and directory sites. His site didn't appear in the results I saw. That check wasn't run from a Denver location, so local Map results may look better, but these general searches are where new customers come from.</p>
+    <div class="callout">
+      <h3>Easy ways to climb those searches</h3>
+      <p>Fix the address mismatch first. Then add real job photos to the Google profile every week or two, list "foggy window glass replacement" and "shower doors" as services there, and ask happy customers to mention the job ("replaced our foggy windows", "new frameless shower") in their reviews. Google reads review text.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="app">
+    <h2 id="app">What a quote app could save each month</h2>
+    <p>The app we've been sketching (photo quotes, shower door designer, online booking, estimates, deposits, invoices, texts, and a property manager portal) would replace Housecall Pro over time and take repetitive work off your plate. The numbers below are starting guesses. Change any of them to match your business and the totals update.</p>
+
+    <div class="calc">
+      <form class="inputs" id="calc" onsubmit="return false">
+        <fieldset>
+          <legend>Software</legend>
+          <div class="field"><label for="c-hcp">Housecall Pro bill per month ($)</label><input id="c-hcp" type="number" inputmode="decimal" min="0" step="1" value="189"></div>
+          <div class="field"><label for="c-run">New app running costs per month ($): hosting, email, texts</label><input id="c-run" type="number" inputmode="decimal" min="0" step="1" value="70"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Measure trips</legend>
+          <div class="field"><label for="c-trips">Measure visits per month</label><input id="c-trips" type="number" inputmode="numeric" min="0" step="1" value="40"></div>
+          <div class="field"><label for="c-nobuy">Visits where the customer never buys (%)</label><input id="c-nobuy" type="number" inputmode="numeric" min="0" max="100" step="1" value="30"></div>
+          <div class="field"><label for="c-filter">Of those, share a photo price would screen out (%)</label><input id="c-filter" type="number" inputmode="numeric" min="0" max="100" step="1" value="50"></div>
+          <div class="field"><label for="c-trip">Hours per visit, with driving</label><input id="c-trip" type="number" inputmode="decimal" min="0" step="0.25" value="1.25"></div>
+          <div class="field"><label for="c-route">Drive minutes saved per visit by grouping nearby stops</label><input id="c-route" type="number" inputmode="numeric" min="0" step="1" value="10"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Office work</legend>
+          <div class="field"><label for="c-jobs">Jobs completed per month</label><input id="c-jobs" type="number" inputmode="numeric" min="0" step="1" value="30"></div>
+          <div class="field"><label for="c-admin">Minutes saved per job (estimates, supplier orders, delivery calls, invoices)</label><input id="c-admin" type="number" inputmode="numeric" min="0" step="1" value="20"></div>
+          <div class="field"><label for="c-rate">What an hour of your time is worth ($)</label><input id="c-rate" type="number" inputmode="decimal" min="0" step="5" value="75"></div>
+        </fieldset>
+        <fieldset>
+          <legend>Payments</legend>
+          <div class="field"><label for="c-rev">Payments collected per month ($)</label><input id="c-rev" type="number" inputmode="decimal" min="0" step="500" value="40000"></div>
+          <div class="field"><label for="c-shift">Share moved from card to bank transfer (%)</label><input id="c-shift" type="number" inputmode="numeric" min="0" max="100" step="1" value="25"></div>
+        </fieldset>
+      </form>
+
+      <div class="results" aria-live="polite">
+        <div><div class="lbl">Estimated value per month</div><div class="big" id="r-total">$0</div></div>
+        <div class="rows">
+          <div><span>Software (Housecall Pro minus running costs)</span><b id="r-soft">$0</b></div>
+          <div><span>Card fees avoided (2.9% card vs about 0.5% bank)</span><b id="r-fees">$0</b></div>
+          <div><span>Hours back: fewer wasted trips</span><b id="r-h1">0 hr</b></div>
+          <div><span>Hours back: shorter drives</span><b id="r-h2">0 hr</b></div>
+          <div><span>Hours back: less office work</span><b id="r-h3">0 hr</b></div>
+          <div><span>Value of hours back</span><b id="r-hval">$0</b></div>
+        </div>
+        <div><div class="lbl">Hours back per month</div><div class="big" id="r-hours">0 <small>hours</small></div></div>
+        <p class="note">Cash savings (software and fees) are money in the bank. Hours back are time you can spend on paying jobs. The one-time cost to build the app isn't included.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:1.5rem;margin-bottom:.75rem">Where the time goes back to you</h3>
+    <div class="gains">
+      <div class="gain"><h3>Fewer wasted trips</h3><p>Homeowners see a real price range from a photo before you drive out, so the people who book a measure are ready to buy.</p></div>
+      <div class="gain"><h3>Tighter days</h3><p>Booking offers times next to stops you already have, so measures cluster by area instead of zigzagging across town.</p></div>
+      <div class="gain"><h3>Better first visits</h3><p>You arrive with photos, estimated sizes and the customer's choices already in hand. You verify instead of starting from scratch.</p></div>
+      <div class="gain"><h3>No retyping orders</h3><p>Your field measurements turn straight into the supplier order, which cuts typing time and wrong-size glass.</p></div>
+      <div class="gain"><h3>No "when's my glass?" calls</h3><p>Supplier delivery emails update the job automatically and text the customer the date.</p></div>
+      <div class="gain"><h3>Paid faster</h3><p>Deposits are collected at approval, invoices go out automatically, and property managers get Net-30 statements and reminders.</p></div>
+      <div class="gain"><h3>Fewer no-shows</h3><p>Automatic text reminders with a reschedule link, plus an "on my way" text.</p></div>
+      <div class="gain"><h3>More reviews</h3><p>A review request goes out after every finished job, which helps you show up higher on Google.</p></div>
+    </div>
+  </section>
+
+</main>
+<script>
+(function(){
+  var ids=['hcp','run','trips','nobuy','filter','trip','route','jobs','admin','rate','rev','shift'];
+  function v(id){var n=parseFloat(document.getElementById('c-'+id).value);return isFinite(n)&&n>0?n:0}
+  function money(n){return (n<0?'-$':'$')+Math.round(Math.abs(n)).toLocaleString('en-US')}
+  function hrs(n){return (Math.round(n*10)/10).toLocaleString('en-US')+' hr'}
+  function calc(){
+    var soft=v('hcp')-v('run');
+    var fees=v('rev')*Math.min(v('shift'),100)/100*(0.029-0.005);
+    var h1=v('trips')*Math.min(v('nobuy'),100)/100*Math.min(v('filter'),100)/100*v('trip');
+    var h2=v('trips')*v('route')/60;
+    var h3=v('jobs')*v('admin')/60;
+    var hours=h1+h2+h3, hval=hours*v('rate');
+    document.getElementById('r-soft').textContent=money(soft);
+    document.getElementById('r-fees').textContent=money(fees);
+    document.getElementById('r-h1').textContent=hrs(h1);
+    document.getElementById('r-h2').textContent=hrs(h2);
+    document.getElementById('r-h3').textContent=hrs(h3);
+    document.getElementById('r-hval').textContent=money(hval);
+    document.getElementById('r-total').textContent=money(soft+fees+hval);
+    document.getElementById('r-hours').innerHTML=(Math.round(hours*10)/10)+' <small>hours</small>';
+  }
+  ids.forEach(function(id){document.getElementById('c-'+id).addEventListener('input',calc)});
+  calc();
+})();
+</script>
+<footer>Prepared by a friend of the business. Everything here was checked from public pages on November 24, 2026; nothing on the site or listings was changed.</footer>
+</div>
+
+</body></html>
