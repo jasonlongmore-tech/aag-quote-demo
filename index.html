@@ -337,6 +337,7 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 .tg input:checked+.trk{background:var(--accent)}
 .tg input:checked+.trk::after{transform:translateX(18px)}
 .tg input:focus-visible+.trk{outline:3px solid var(--focus);outline-offset:2px}
+@media(max-width:559px){.tray.sl .opt:last-child{grid-column:1/-1}}
 @media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 <div class="wrap" id="app">
@@ -443,7 +444,7 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 </div>
 <div class="band alt">
 <p class="trust">Since 2001 &middot; 4.8&#9733; from 103 Google reviews &middot; Field-verified before ordering</p>
-<div class="how" id="how-home"><div><b>1</b>Tape a sheet of paper on the glass and snap a photo.</div><div><b>2</b>See a sample price range for glass only or a new window.</div><div><b>3</b>Pick a time. Darcey confirms the final size and price.</div></div>
+<div class="how" id="how-home"><div><b>1</b>Take one photo of the whole window. A light switch or outlet in the shot is our ruler.</div><div><b>2</b>See a sample price range for glass only or a new window.</div><div><b>3</b>Pick a time. Darcey confirms the final size and price.</div></div>
 <p class="small muted" style="margin:18px 0 0;text-align:center">Prefer to talk? Call Darcey at (303) 618-0417.</p>
 </div>
 </section>
@@ -452,19 +453,20 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 <a class="back" href="#start">&larr; Back</a>
 <h1 id="h-window" tabindex="-1">Measure your window</h1>
 <p>Pick how you want to measure. We read the window type and size for you, and you can correct anything.</p>
-<div class="card"><div id="wm-wrap"></div><div class="note hide" id="wm-note" style="margin-bottom:0">In the real app, this opens the All About Glass iPhone app. Android phones use the photo method.</div></div>
+<div class="card"><div id="wm-wrap"></div><div class="note hide" id="wm-note" style="margin-bottom:0">In the real app, this opens the All About Glass iPhone app and needs no props. Android phones use the photo method, which only needs a light switch or outlet in the shot.</div></div>
 <div class="card diag" id="diag-card">
-<svg viewBox="0 0 150 150" aria-label="Diagram: a sheet of paper taped flat on the window glass, photo taken straight on">
-<rect x="30" y="8" width="90" height="104" rx="3" fill="var(--glass-a)" stroke="var(--accent)" stroke-width="4"/><path d="M75 8v104M30 60h90" stroke="var(--accent)" stroke-width="3"/>
-<rect x="55" y="66" width="38" height="40" fill="var(--paper)" stroke="var(--cta)" stroke-width="2"/><path d="M60 76h28M60 83h28M60 90h20" stroke="var(--muted)" stroke-width="2"/>
-<rect x="50" y="62" width="9" height="5" fill="var(--cta)" opacity=".7"/><rect x="89" y="62" width="9" height="5" fill="var(--cta)" opacity=".7"/>
-<text x="74" y="126" text-anchor="middle" font-size="9" font-weight="700" fill="var(--head)" font-family="Inter,sans-serif">8.5 &#215; 11 in</text>
-<path d="M75 146v-8" stroke="var(--muted)" stroke-width="2" stroke-dasharray="2 3"/><rect x="64" y="136" width="22" height="12" rx="2" fill="var(--head)"/><circle cx="75" cy="142" r="3.5" fill="var(--surface)"/>
+<svg viewBox="0 0 150 150" role="img" aria-label="Diagram: a window with a light switch plate on the wall beside it, photo taken straight on">
+<rect width="150" height="150" fill="none"/>
+<rect x="10" y="10" width="76" height="102" rx="3" fill="var(--glass-a)" stroke="var(--accent)" stroke-width="4"/><path d="M48 10v102M10 61h76" stroke="var(--accent)" stroke-width="3"/>
+<rect x="106" y="52" width="16" height="26" rx="2" fill="var(--paper)" stroke="var(--cta)" stroke-width="2" stroke-dasharray="4 2"/><rect x="111" y="60" width="6" height="9" rx="1" fill="var(--muted)"/>
+<path d="M114 46v-8M114 84v8" stroke="var(--cta)" stroke-width="1.5"/>
+<text x="75" y="128" text-anchor="middle" font-size="9" font-weight="700" fill="var(--head)" font-family="Inter,sans-serif">Switch plate = 2&#190; &#215; 4&#189; in</text>
+<rect x="64" y="134" width="22" height="12" rx="2" fill="var(--head)"/><circle cx="75" cy="140" r="3.5" fill="var(--surface)"/>
 </svg>
 <ol>
-<li><b>Tape</b> a plain 8.5 &times; 11 sheet flat on the glass, all four corners.</li>
-<li><b>Stand straight on</b>, centered, not off to one side.</li>
-<li><b>Fill the frame</b> with the whole window and the sheet.</li>
+<li>Stand straight on and take one photo of the whole window.</li>
+<li>Get a light switch, outlet or some brick in the shot if you can.</li>
+<li>No switch in view? Use a tape measure or a sheet of paper (you can switch below).</li>
 </ol>
 </div>
 <div class="card">
@@ -482,11 +484,12 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 <div class="row" style="margin-top:12px;justify-content:center"><button class="btn line" type="button" id="scan-start">Start scan</button></div>
 </div>
 <div class="stage hide" id="win-stage">
-<canvas id="win-canvas" width="720" height="900" aria-label="Photo with draggable corner handles for the paper and the window"></canvas>
-<div class="legend"><span><i class="i-paper"></i>Paper corners (1 top-left, then clockwise)</span><span><i class="i-win"></i>Window opening corners</span></div>
+<canvas id="win-canvas" width="720" height="900" aria-label="Photo with draggable corner handles for the reference object and the window"></canvas>
+<div class="legend"><span><i class="i-paper"></i>Reference corners (1 top-left, then clockwise)</span><span><i class="i-win"></i>Window opening corners</span></div>
 <p class="small muted" style="margin:8px 0 0">Drag each handle onto its corner. Scroll the page using the space beside the photo.</p>
 </div>
-<div class="chk hide" id="win-land-wrap" style="margin-top:12px"><input type="checkbox" id="win-landscape"><label for="win-landscape">My sheet is taped sideways (11 in wide)</label></div>
+<div class="chk hide" id="win-land-wrap" style="margin-top:12px"><input type="checkbox" id="win-landscape"><label for="win-landscape">My sheet is sideways (11 in wide)</label></div>
+<div class="fld hide" id="tape-wrap" style="margin-top:12px"><label for="tape-in">Tape measure reading across the glass (inches)</label><input id="tape-in" type="number" inputmode="decimal" step="0.125" min="6" max="200" placeholder="e.g. 35.375"></div>
 <div class="two" style="margin-top:14px">
 <div class="fld"><label for="win-w">Width (inches)</label><div class="unit"><input id="win-w" type="number" inputmode="decimal" step="0.125" min="6" max="200" placeholder="e.g. 35.375"><span>in</span></div></div>
 <div class="fld"><label for="win-h">Height (inches)</label><div class="unit"><input id="win-h" type="number" inputmode="decimal" step="0.125" min="6" max="200" placeholder="e.g. 59.25"><span>in</span></div></div>
@@ -494,7 +497,8 @@ fieldset.grp>legend{font:700 .72rem/1.2 Inter,sans-serif;letter-spacing:.1em;tex
 <div class="meas hide" id="meas-out" aria-live="polite"></div>
 <p class="small muted" style="margin:8px 0 0">No photo handy? You can also just type the size you know.</p>
 </div>
-<div class="card hide" id="found"></div>
+<div class="card hide" id="found"><h2>We found</h2><div id="found-rows"></div><div id="ref-wrap" style="margin-top:14px"></div><div id="found-tail"></div></div>
+<div class="note hide" id="tighten"><b>Tighten your price.</b> Want a firmer number? Take one more photo with a tape measure across the glass, or a sheet of paper taped flat on it.<div class="row" style="margin-top:10px"><button class="btn sm" type="button" id="tg-tape">Use a tape measure</button><button class="btn sm" type="button" id="tg-paper">Use a paper sheet</button></div><p class="small" id="tg-note" style="margin:8px 0 0;font-weight:700;color:var(--ok)"></p></div>
 <div class="card">
 <h2>2. About your window</h2>
 <div id="win-opts"></div>
@@ -704,12 +708,22 @@ return h;
 }
 function applyH(h,p){var x=p[0],y=p[1],w=h[6]*x+h[7]*y+1;return [(h[0]*x+h[1]*y+h[2])/w,(h[3]*x+h[4]*y+h[5])/w]}
 function dist(a,b){return Math.sqrt((a[0]-b[0])*(a[0]-b[0])+(a[1]-b[1])*(a[1]-b[1]))}
-function measure(P,Q,land){
-if(!P||!Q)return null;
-var dst=land?[[0,0],[11,0],[11,8.5],[0,8.5]]:[[0,0],[8.5,0],[8.5,11],[0,11]];
-var h=solveH(P,dst);if(!h)return null;
+function measure(P,Q){
+if(!Q)return null;var R=REFS[REF],w,ht;
+function len(a,b){return (dist(Q[a[0]],Q[a[1]])+dist(Q[b[0]],Q[b[1]]))/2}
+if(REF==='tape'){
+var rd=parseFloat($('#tape-in').value),wpx=len([0,1],[3,2]),hpx=len([0,3],[1,2]);
+if(!(rd>=6&&wpx>1))return null;w=rd;ht=hpx*rd/wpx;
+}else{
+if(!P)return null;
+if(R.hOnly){var ph=(dist(P[0],P[3])+dist(P[1],P[2]))/2;if(ph<2)return null;var sc=R.h/ph;w=len([0,1],[3,2])*sc;ht=len([0,3],[1,2])*sc}
+else{
+var land=REF==='paper'&&$('#win-landscape').checked,rw=land?R.h:R.w,rh=land?R.w:R.h;
+var h=solveH(P,[[0,0],[rw,0],[rw,rh],[0,rh]]);if(!h)return null;
 var q=Q.map(function(p){return applyH(h,p)});
-var w=(dist(q[0],q[1])+dist(q[3],q[2]))/2,ht=(dist(q[0],q[3])+dist(q[1],q[2]))/2;
+w=(dist(q[0],q[1])+dist(q[3],q[2]))/2;ht=(dist(q[0],q[3])+dist(q[1],q[2]))/2;
+}
+}
 if(!(w>1&&ht>1&&w<400&&ht<400))return null;
 return {w:toEighth(w),h:toEighth(ht)};
 }
@@ -719,36 +733,42 @@ function getSample(){
 if(sampleCache)return sampleCache;
 var cv=document.createElement('canvas');cv.width=720;cv.height=900;var c=cv.getContext('2d');
 var WW=35.375,HH=59.25;
-var Hp=solveH([[0,0],[WW,0],[WW,HH],[0,HH]],[[148,128],[574,138],[584,812],[138,822]]);
+var Hp=solveH([[0,0],[WW,0],[WW,HH],[0,HH]],[[80,170],[470,176],[478,820],[72,826]]);
 function ip(x,y){return applyH(Hp,[x,y])}
 function path(pts){c.beginPath();pts.forEach(function(p,i){i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])});c.closePath()}
 function rect(x0,y0,x1,y1){return [ip(x0,y0),ip(x1,y0),ip(x1,y1),ip(x0,y1)]}
-var g=c.createLinearGradient(0,0,720,900);g.addColorStop(0,'#cdbfa8');g.addColorStop(1,'#b6a88f');c.fillStyle=g;c.fillRect(0,0,720,900);
-c.strokeStyle='rgba(80,66,46,.2)';c.lineWidth=2;
-for(var y=10;y<900;y+=24){c.beginPath();c.moveTo(0,y);c.lineTo(720,y);c.stroke()}
-for(var i=0;i<900;i++){c.fillStyle='rgba(70,58,40,'+(Math.random()*.06)+')';c.fillRect(Math.random()*720,Math.random()*900,2,2)}
-path(rect(-3.4,-3.4,WW+3.4,HH+3.6));c.fillStyle='#efece5';c.fill();c.strokeStyle='rgba(60,50,35,.35)';c.lineWidth=3;c.stroke();
-path(rect(-4.8,HH+3.6,WW+4.8,HH+6));c.fillStyle='#dedad0';c.fill();c.stroke();
-path(rect(-1.7,-1.7,WW+1.7,HH+1.7));c.fillStyle='#cfcabd';c.fill();
+var i,g=c.createLinearGradient(0,0,720,900);g.addColorStop(0,'#dcd6ca');g.addColorStop(1,'#c8c1b2');c.fillStyle=g;c.fillRect(0,0,720,900);
+for(i=0;i<1400;i++){c.fillStyle='rgba(90,76,58,'+(Math.random()*.05)+')';c.fillRect(Math.random()*720,Math.random()*900,2,2)}
+var lg=c.createRadialGradient(270,500,60,270,500,520);lg.addColorStop(0,'rgba(255,250,235,.28)');lg.addColorStop(1,'rgba(255,250,235,0)');c.fillStyle=lg;c.fillRect(0,0,720,900);
+path(rect(-4,-4,WW+4,HH+3.5));c.fillStyle='#f2f0ea';c.fill();c.strokeStyle='rgba(60,50,35,.3)';c.lineWidth=2;c.stroke();
+path(rect(-5.6,HH+3.5,WW+5.6,HH+5.4));c.fillStyle='#e9e6de';c.fill();c.stroke();
+path(rect(-3,HH+5.4,WW+3,HH+7));c.fillStyle='#f2f0ea';c.fill();c.stroke();
+path(rect(-1.5,-1.5,WW+1.5,HH+1.5));c.fillStyle='#d3cfc3';c.fill();
 path(rect(0,0,WW,HH));
-var gl=c.createLinearGradient(148,128,584,812);gl.addColorStop(0,'#a9c9e1');gl.addColorStop(.55,'#c9dcea');gl.addColorStop(1,'#9fbdd4');c.fillStyle=gl;c.fill();
+var gl=c.createLinearGradient(80,170,478,820);gl.addColorStop(0,'#a9c9e1');gl.addColorStop(.55,'#cfe0ec');gl.addColorStop(1,'#a2bfd5');c.fillStyle=gl;c.fill();
+c.save();path(rect(0,0,WW,HH));c.clip();
+c.fillStyle='rgba(88,128,92,.55)';[[6,26,7],[13,29,9],[27,27,8]].forEach(function(t){var q=ip(t[0],t[1]),r=t[2]*10;c.beginPath();c.arc(q[0],q[1],r,0,6.3);c.fill()});
+c.restore();
 c.save();path(rect(0,HH/2+1.2,WW,HH));c.clip();
-[[9,48,9],[24,52,12],[18,40,8],[28,44,7]].forEach(function(f){var p=ip(f[0],f[1]),r=f[2]*13;var rg=c.createRadialGradient(p[0],p[1],2,p[0],p[1],r);rg.addColorStop(0,'rgba(255,255,255,.55)');rg.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=rg;c.fillRect(0,0,720,900)});
-c.fillStyle='rgba(255,255,255,.22)';for(i=0;i<46;i++){var q=ip(2+Math.random()*(WW-4),HH/2+3+Math.random()*(HH/2-5));c.beginPath();c.arc(q[0],q[1],1+Math.random()*2.2,0,6.3);c.fill()}
+[[9,48,9],[24,52,12],[18,40,8],[28,44,7]].forEach(function(f){var p=ip(f[0],f[1]),r=f[2]*11;var rg=c.createRadialGradient(p[0],p[1],2,p[0],p[1],r);rg.addColorStop(0,'rgba(255,255,255,.55)');rg.addColorStop(1,'rgba(255,255,255,0)');c.fillStyle=rg;c.fillRect(0,0,720,900)});
+c.fillStyle='rgba(255,255,255,.22)';for(i=0;i<46;i++){var q=ip(2+Math.random()*(WW-4),HH/2+3+Math.random()*(HH/2-5));c.beginPath();c.arc(q[0],q[1],1+Math.random()*2,0,6.3);c.fill()}
 c.restore();
 c.fillStyle='rgba(255,255,255,.2)';path([ip(4,0),ip(12,0),ip(2,HH*.4),ip(0,HH*.4)]);c.fill();
-c.fillStyle='#f3f1ec';
+c.fillStyle='#f4f2ec';
 [[0,0,WW,1.4],[0,HH-1.4,WW,HH],[0,0,1.4,HH],[WW-1.4,0,WW,HH],[0,HH/2-1.2,WW,HH/2+1.2]].forEach(function(r){path(rect(r[0],r[1],r[2],r[3]));c.fill();c.strokeStyle='rgba(60,50,35,.25)';c.lineWidth=1;c.stroke()});
-var px0=13.4,py0=34,px1=21.9,py1=45;
-c.fillStyle='rgba(0,0,0,.22)';path(rect(px0+.5,py0+.5,px1+.5,py1+.6));c.fill();
-path(rect(px0,py0,px1,py1));c.fillStyle='#ffffff';c.fill();c.strokeStyle='rgba(0,0,0,.25)';c.lineWidth=1.5;c.stroke();
-c.strokeStyle='#9aa4b2';c.lineWidth=2.5;
-for(i=0;i<7;i++){var a=ip(px0+.9,py0+2.6+i*1.15),b=ip(px1-.9-(i%3)*1.4,py0+2.6+i*1.15);c.beginPath();c.moveTo(a[0],a[1]);c.lineTo(b[0],b[1]);c.stroke()}
-c.strokeStyle='#33415a';c.lineWidth=5;var t1=ip(px0+.9,py0+1.2),t2=ip(px0+5.5,py0+1.2);c.beginPath();c.moveTo(t1[0],t1[1]);c.lineTo(t2[0],t2[1]);c.stroke();
-c.fillStyle='rgba(224,205,150,.78)';
-[[px0,py0],[px1,py0],[px1,py1],[px0,py1]].forEach(function(p){path(rect(p[0]-.9,p[1]-.5,p[0]+.9,p[1]+.5));c.fill()});
-var sh=c.createLinearGradient(100,100,640,820);sh.addColorStop(0,'rgba(255,255,255,.14)');sh.addColorStop(.5,'rgba(255,255,255,0)');sh.addColorStop(1,'rgba(0,0,0,.08)');c.fillStyle=sh;c.fillRect(0,0,720,900);
-sampleCache={cv:cv,paper:[ip(px0,py0),ip(px1,py0),ip(px1,py1),ip(px0,py1)],win:[ip(0,0),ip(WW,0),ip(WW,HH),ip(0,HH)]};
+var sx0=WW+7,sy0=37,sx1=sx0+2.75,sy1=sy0+4.5;
+c.fillStyle='rgba(0,0,0,.2)';path(rect(sx0+.2,sy0+.2,sx1+.3,sy1+.35));c.fill();
+path(rect(sx0,sy0,sx1,sy1));c.fillStyle='#f8f5eb';c.fill();c.strokeStyle='#c9c3b1';c.lineWidth=1.5;c.stroke();
+path(rect(sx0+.95,sy0+1.55,sx1-.95,sy0+3));c.fillStyle='#ebe6d6';c.fill();c.strokeStyle='#b9b29d';c.lineWidth=1;c.stroke();
+[sy0+.6,sy1-.6].forEach(function(yy){var q=ip(sx0+1.375,yy);c.beginPath();c.arc(q[0],q[1],2,0,6.3);c.fillStyle='#d6d0bf';c.fill()});
+var sh=c.createLinearGradient(60,100,640,820);sh.addColorStop(0,'rgba(255,255,255,.12)');sh.addColorStop(.5,'rgba(255,255,255,0)');sh.addColorStop(1,'rgba(0,0,0,.07)');c.fillStyle=sh;c.fillRect(0,0,720,900);
+function refQuad(k,land){
+if(k==='outlet')return rect(WW+7,55,WW+9.75,59.5);
+if(k==='brick')return rect(WW+6,18,WW+12,26);
+if(k==='paper')return land?rect(WW+2.5,8,WW+13.5,16.5):rect(WW+3,6,WW+11.5,17);
+return rect(sx0,sy0,sx1,sy1);
+}
+sampleCache={cv:cv,paper:refQuad('switch'),win:rect(0,0,WW,HH),refQuad:refQuad};
 return sampleCache;
 }
 /* ---------- canvas overlay ---------- */
@@ -756,7 +776,13 @@ function overlay(c,Wd,P,Q,wt,ht,handles){
 var k=Wd/720,o=cssv('--cta','#ff6b35'),b=cssv('--lblue','#7eb8f7');
 function poly(pts,stroke,fill,dash){c.beginPath();pts.forEach(function(p,i){i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1])});c.closePath();if(fill){c.fillStyle=fill;c.fill()}c.setLineDash(dash||[]);c.lineWidth=3*k;c.strokeStyle=stroke;c.stroke();c.setLineDash([])}
 poly(Q,b,'rgba(49,120,198,.14)');
+if(REF!=='tape'&&P){
 poly(P,o,'rgba(255,107,53,.2)',[9*k,5*k]);
+var lt='Reference: '+REFS[REF].tag,xs=P.map(function(p){return p[0]}),ys=P.map(function(p){return p[1]}),mnx=Math.min.apply(null,xs),mxx=Math.max.apply(null,xs),cyy=(Math.min.apply(null,ys)+Math.max.apply(null,ys))/2;
+c.font='700 '+(14*k)+'px Inter,sans-serif';var lw=c.measureText(lt).width,lp=7*k,lh=22*k,left=mnx-14*k-lw-lp*2<4;
+var bx=left?mxx+12*k:mnx-14*k-lw-lp*2;if(bx+lw+lp*2>Wd-4)bx=Wd-4-lw-lp*2;
+c.fillStyle='#0a1628';c.fillRect(bx,cyy-lh/2,lw+lp*2,lh);c.fillStyle='#ffffff';c.textAlign='left';c.textBaseline='middle';c.fillText(lt,bx+lp,cyy+1*k);
+}
 var ctr=[(Q[0][0]+Q[1][0]+Q[2][0]+Q[3][0])/4,(Q[0][1]+Q[1][1]+Q[2][1]+Q[3][1])/4];
 function dim(a,bb,text){
 if(!text)return;
@@ -773,9 +799,9 @@ c.fillStyle='#ffffff';c.textAlign='center';c.textBaseline='middle';c.fillText(te
 }
 dim(Q[0],Q[1],wt);dim(Q[0],Q[3],ht);
 if(handles){
-[[P,o],[Q,b]].forEach(function(set){set[0].forEach(function(p,i){
-c.beginPath();c.arc(p[0],p[1],13*k,0,6.2832);c.fillStyle=set[1];c.fill();c.lineWidth=3*k;c.strokeStyle='#ffffff';c.stroke();
-c.fillStyle='#0a1628';c.font='800 '+(13*k)+'px Inter,sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(String(i+1),p[0],p[1]+1*k);
+[[REF==='tape'?null:P,o,8],[Q,b,13]].forEach(function(set){if(!set[0])return;set[0].forEach(function(p,i){
+var r=set[2]*k;c.beginPath();c.arc(p[0],p[1],r,0,6.2832);c.fillStyle=set[1];c.fill();c.lineWidth=2.5*k;c.strokeStyle='#ffffff';c.stroke();
+c.fillStyle='#0a1628';c.font='800 '+(r*1.0)+'px Inter,sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillText(String(i+1),p[0],p[1]+1*k);
 })});
 }
 }
@@ -796,16 +822,16 @@ try{return cv.toDataURL('image/jpeg',.72)}catch(e){return null}
 function setBase(base,P,Q){
 M.base=base;M.paper=P;M.win=Q;
 var cv=$('#win-canvas');cv.width=base.width;cv.height=base.height;
-$('#win-stage').classList.remove('hide');$('#win-land-wrap').classList.remove('hide');
+$('#win-stage').classList.remove('hide');syncRefUI();
 recalc();
 }
 function recalc(){
-var m=measure(M.paper,M.win,$('#win-landscape').checked);
+var m=measure(M.paper,M.win);
 var out=$('#meas-out');
 if(m){$('#win-w').value=m.w;$('#win-h').value=m.h;
 out.classList.remove('hide');
-out.innerHTML='<div><span class="small muted">Measured from your photo</span><br><strong>'+fmtIn(m.w)+' × '+fmtIn(m.h)+' in</strong></div><div class="small" style="max-width:22em">±½ in, field verified before ordering.</div>';
-}else{out.classList.remove('hide');out.innerHTML='<div class="small">Move the handles so each sits on a corner.</div>'}
+out.innerHTML='<div><span class="small muted">Measured from your photo</span><br><strong>'+fmtIn(m.w)+' × '+fmtIn(m.h)+' in</strong></div><div class="small" style="max-width:22em">'+REFS[REF].acc+', field verified before ordering.</div>';
+}else{out.classList.remove('hide');out.innerHTML='<div class="small">'+(REF==='tape'?'Type the tape reading above.':'Move the handles so each sits on a corner.')+'</div>'}
 drawMain();priceWin();
 }
 function ptr(e){var cv=$('#win-canvas'),r=cv.getBoundingClientRect();return [(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height,cv.width/r.width]}
@@ -813,7 +839,7 @@ function initCanvas(){
 var cv=$('#win-canvas');
 cv.addEventListener('pointerdown',function(e){
 if(!M.base)return;var p=ptr(e),best=null,bd=1e9;
-[['paper',M.paper],['win',M.win]].forEach(function(s){s[1].forEach(function(h,i){var d=dist(p,h);if(d<bd){bd=d;best={set:s[0],i:i}}})});
+(REF==='tape'?[]:[['paper',M.paper]]).concat([['win',M.win]]).forEach(function(s){s[1].forEach(function(h,i){var d=dist(p,h);if(d<bd){bd=d;best={set:s[0],i:i}}})});
 if(best&&bd<=24*p[2]){M.drag=best;try{cv.setPointerCapture(e.pointerId)}catch(x){}e.preventDefault()}
 });
 cv.addEventListener('pointermove',function(e){
@@ -825,7 +851,7 @@ e.preventDefault();recalc();
 var end=function(){M.drag=null};
 cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
 $('#win-sample').addEventListener('click',function(){var s=getSample();
-setBase(s.cv,s.paper.map(function(p){return p.slice()}),s.win.map(function(p){return p.slice()}));$('#win-landscape').checked=false;recalc();startRead('sample');
+REF='switch';M.isSample=true;setRefRadios();$('#win-landscape').checked=false;setBase(s.cv,s.paper.map(function(p){return p.slice()}),s.win.map(function(p){return p.slice()}));recalc();startRead('sample');
 $('#win-stage').scrollIntoView({block:'nearest'});});
 $('#win-file').addEventListener('change',function(e){
 var f=e.target.files&&e.target.files[0];if(!f)return;
@@ -833,13 +859,12 @@ var url=URL.createObjectURL(f),im=new Image();
 im.onload=function(){
 var sc=Math.min(1,1000/Math.max(im.naturalWidth,im.naturalHeight)),w=Math.round(im.naturalWidth*sc),h=Math.round(im.naturalHeight*sc);
 var b=document.createElement('canvas');b.width=w;b.height=h;b.getContext('2d').drawImage(im,0,0,w,h);URL.revokeObjectURL(url);
-var pw=.16*w,ph=pw*11/8.5,cx=.5*w,cy=.5*h;
-setBase(b,[[cx-pw/2,cy-ph/2],[cx+pw/2,cy-ph/2],[cx+pw/2,cy+ph/2],[cx-pw/2,cy+ph/2]],[[.12*w,.12*h],[.88*w,.12*h],[.88*w,.88*h],[.12*w,.88*h]]);startRead('upload');
+REF='switch';M.isSample=false;setRefRadios();setBase(b,uploadRef('switch',w,h),uploadWin(w,h));startRead('upload');
 };
 im.onerror=function(){URL.revokeObjectURL(url)};
 im.src=url;
 });
-$('#win-landscape').addEventListener('change',recalc);
+$('#win-landscape').addEventListener('change',function(){if(M.isSample&&REF==='paper')M.paper=getSample().refQuad('paper',this.checked);recalc()});
 ['#win-w','#win-h'].forEach(function(s){$(s).addEventListener('input',function(){
 var o=$('#meas-out');o.classList.remove('hide');var d=curDims();
 o.innerHTML=d?'<div><span class="small muted">Using the size you typed</span><br><strong>'+fmtIn(d.w)+' × '+fmtIn(d.h)+' in</strong></div><div class="small" style="max-width:22em">Final size confirmed at the free field measure.</div>':'<div class="small">Enter both width and height.</div>';
@@ -850,8 +875,8 @@ function winCalc(o,w,h){
 var gm=GM[o.glass],extra=(o.grids==='yes'?60:0)+(o.floor==='2'?45:0);
 var glassP=(9.5*Math.max(4,w*h/144)+165)*gm+extra;
 var newP=((w+h)*RATE[o.type]+225)*gm+extra;
-var main=o.problem==='new'?newP:glassP;
-return {range:rng(main),glass:rng(glassP),neu:rng(newP),gMid:glassP,nMid:newP,isNew:o.problem==='new'};
+var main=o.problem==='new'?newP:glassP,f=RF();
+return {range:rng(main,f[0],f[1]),glass:rng(glassP,f[0],f[1]),neu:rng(newP,f[0],f[1]),gMid:glassP,nMid:newP,isNew:o.problem==='new'};
 }
 function winOpts(o){return [lab(GLASS,o.glass)+' glass',o.grids==='yes'?'With grids':'No grids',lab(FLOOR,o.floor)]}
 function winTitle(o){return lab(TYPES,o.type)+' — '+(o.problem==='foggy'?'foggy glass replacement':o.problem==='crack'?'cracked glass replacement':'new window')}
@@ -1168,24 +1193,27 @@ setW('type','dh');setW('problem','foggy');setW('grids','no');
 AUTO.size=true;markAuto('size',[$('label[for="win-w"]'),$('label[for="win-h"]')]);
 }
 function renderFound(){
-var el=$('#found');if(!FOUND){el.classList.add('hide');return}
-var d=curDims(),k=FOUND.kind;
-var rows=[['type','Type',lab(TYPES,W.type)+(AUTO.type?' (92% sure)':'')],['size','Size',d?fmtIn(d.w)+' × '+fmtIn(d.h)+' in'+(k==='scan'?' (±¼ in)':''):'not set yet'],['issue','Issue',{foggy:'Fogging between panes',crack:'Cracked glass',new:'Wants a new window'}[W.problem]],['grids','Grids',W.grids==='yes'?'Yes':'None'],['maker','Likely maker','Check the spacer text']];
-var note=k==='sample'?'Demo result.':k==='upload'?'Demo: automatic detection is simulated for your photo. The real app uses AI to read it.':'Demo — simulated scan.';
-el.innerHTML='<h2>We found</h2>'+rows.map(function(r){return '<div class="fr"><span>'+r[1]+'</span><b>'+esc(r[2])+'</b><button class="btn sm" type="button" data-go="'+r[0]+'" aria-label="Change '+r[1].toLowerCase()+'">Change</button></div>'}).join('')+(k!=='scan'?'<p class="small" style="margin-top:10px">Drag any corner if the outline is off.</p>':'')+'<p class="small muted" style="margin:6px 0 0"><b>'+note+'</b></p>';
+var el=$('#found'),tg=$('#tighten');if(!FOUND){el.classList.add('hide');tg.classList.add('hide');return}
+var d=curDims(),k=FOUND.kind,R=REFS[REF];
+var rows=[['type','Type',lab(TYPES,W.type)+(AUTO.type?' (92% sure)':'')],['size','Size',d?fmtIn(d.w)+' \u00D7 '+fmtIn(d.h)+' in'+(k==='scan'?' (\u00B1\u00BC in)':''):'not set yet'],['ref','Measured using',k==='scan'?'Simulated 3D scan':R.n],['issue','Issue',{foggy:'Fogging between panes',crack:'Cracked glass',new:'Wants a new window'}[W.problem]],['grids','Grids',W.grids==='yes'?'Yes':'None'],['maker','Likely maker','Check the spacer text']];
+if(k==='scan')rows.splice(2,1);
+var note=k==='sample'?'Demo result.'+(REF!=='switch'?' The sample photo only has a light switch, so the demo places other references for you.':''):k==='upload'?'Demo: automatic detection is simulated for your photo. The real app uses AI to find the window and the reference.':'Demo \u2014 simulated scan.';
+$('#found-rows').innerHTML=rows.map(function(r){return '<div class="fr"><span>'+r[1]+'</span><b>'+esc(r[2])+'</b><button class="btn sm" type="button" data-go="'+r[0]+'" aria-label="Change '+r[1].toLowerCase()+'">Change</button></div>'}).join('');
+$('#found-tail').innerHTML='<p class="small" style="margin:10px 0 0">Accuracy: '+(k==='scan'?'\u00B1\u00BC in':R.acc)+(k!=='scan'?'. Drag any corner if the outline is off.':'')+'</p><p class="small muted" style="margin:6px 0 0"><b>'+note+'</b></p>';
+$('#ref-wrap').classList.toggle('hide',k==='scan');tg.classList.toggle('hide',k==='scan');
+$('#tg-note').textContent=tight()?'Range tightened with '+R.n+'.':'';
 el.classList.remove('hide');
 }
 function clearRead(){readT.forEach(clearTimeout);readT=[]}
 function startRead(kind){
 clearRead();FOUND=null;renderFound();
 var p=$('#read-panel'),txt=$('#read-txt'),bar=$('#read-bar');
-var steps=['Finding the paper sheet','Finding the window edges','Identifying the window type'];
+var steps=['Finding the window edges','Looking for something of known size','Found a light switch plate (2\u00BE \u00D7 4\u00BD in)','Identifying the window type'];
 function done(){p.classList.add('hide');applyAuto();FOUND={kind:kind};priceWin();var f=$('#found');if(f.scrollIntoView)f.scrollIntoView({block:'nearest'})}
 if(reduced()){done();return}
-p.classList.remove('hide');bar.style.transition='none';bar.style.width='0';txt.textContent='Reading your photo… '+steps[0];
+p.classList.remove('hide');bar.style.transition='none';bar.style.width='0';txt.textContent='Reading your photo\u2026 '+steps[0];
 void bar.offsetWidth;bar.style.transition='width 1.8s linear';bar.style.width='100%';
-readT.push(setTimeout(function(){txt.textContent='Reading your photo… '+steps[1]},600));
-readT.push(setTimeout(function(){txt.textContent='Reading your photo… '+steps[2]},1200));
+[1,2,3].forEach(function(i){readT.push(setTimeout(function(){txt.textContent='Reading your photo\u2026 '+steps[i]},i*450))});
 readT.push(setTimeout(done,1800));
 }
 function drawScan(t,fin){
@@ -1224,7 +1252,7 @@ MODE=m;scanRun++;clearRead();FOUND=null;scanDone=false;$('#read-panel').classLis
 ['type','problem','grids','size'].forEach(clearAuto);
 var ph=m==='photo';
 $('#diag-card').classList.toggle('hide',!ph);$('#photo-row').classList.toggle('hide',!ph);
-$('#win-stage').classList.toggle('hide',!(ph&&M.base));$('#win-land-wrap').classList.toggle('hide',!(ph&&M.base));
+$('#win-stage').classList.toggle('hide',!(ph&&M.base));syncRefUI();
 $('#scan-card').classList.toggle('hide',m!=='scan');$('#wm-note').classList.toggle('hide',m!=='scan');
 $('#meas-h2').textContent=ph?'1. Add your photo':m==='scan'?'1. Scan your window':'1. Enter the size';
 if(m==='scan'){$('#scan-start').disabled=false;$('#scan-start').textContent='Start scan';drawScan(0,false);$('#sr-f').textContent='Not found yet'}
@@ -1235,10 +1263,16 @@ function buildMode(){
 $('#wm-wrap').innerHTML=tray('wm-mode','How do you want to measure?',[['photo','Photo (any phone)'],['scan','3D scan (iPhone Pro / iPad Pro)'],['manual','Enter it myself']],'photo',3,1);
 $('#wm-wrap').addEventListener('change',function(e){if(e.target.name==='wm-mode')setMode(e.target.value)});
 $('#scan-start').addEventListener('click',startScan);
+$('#ref-wrap').innerHTML=tray('ref-pick','What is in your photo?',[['switch','Light switch'],['outlet','Outlet cover'],['brick','Brick (3 rows = 8 in)'],['paper','Paper sheet'],['tape','Tape measure']],'switch',5,2,'Pick what is in your photo. The orange handles mark it.').replace('class="tray"','class="tray sl"');
+$('#ref-wrap').addEventListener('change',function(e){if(e.target.name==='ref-pick')setRef(e.target.value)});
+$('#tape-in').addEventListener('input',recalc);
+$('#tg-tape').addEventListener('click',function(){setRef('tape')});
+$('#tg-paper').addEventListener('click',function(){setRef('paper')});
 ['#win-w','#win-h'].forEach(function(q){$(q).addEventListener('input',function(){clearAuto('size')})});
 $('#found').addEventListener('click',function(e){
 var b=e.target.closest('[data-go]');if(!b)return;var g=b.getAttribute('data-go'),t=null;
-if(g==='maker'){$('#idbox').open=true;t=$('#idbox summary')}
+if(g==='ref'){t=$('input[name="ref-pick"]:checked')}
+else if(g==='maker'){$('#idbox').open=true;t=$('#idbox summary')}
 else if(g==='size')t=$('#win-w');
 else t=$('input[name="w-'+(g==='issue'?'problem':g)+'"]:checked');
 if(t){t.scrollIntoView({block:'center'});if(t.focus)t.focus()}
@@ -1255,7 +1289,8 @@ sliding:'<svg class="pic" viewBox="0 0 40 28" aria-hidden="true"><path class="w"
 tub:'<svg class="pic" viewBox="0 0 40 28" aria-hidden="true"><path class="w" d="M3 4h34v20H3z"/><path class="g" d="M12 24h16"/></svg>'
 };
 function rbar(lo,hi,max,label,ghost){var a=Math.min(98,lo/max*100),b=Math.min(100,hi/max*100);return '<div class="rb'+(ghost?' ghost':'')+'"><span class="small"><span>'+label+'</span><span>'+rangeTxt([lo,hi])+'</span></span><div class="rt"><i style="left:'+a+'%;width:'+Math.max(2,b-a)+'%"></i></div></div>'}
-function winBars(c){
+function winBars(c){return winBars0(c)+(tight()?'<p class="sub" style="color:var(--ok);font-weight:700">Range tightened with '+REFS[REF].n+'.</p>':'')}
+function winBars0(c){
 if(W.problem==='foggy'){var mx=Math.max(c.glass[1],c.neu[1])*1.12;return rbar(c.glass[0],c.glass[1],mx,'Glass only',false)+rbar(c.neu[0],c.neu[1],mx,'New window',true)}
 return rbar(c.range[0],c.range[1],Math.max(c.range[1]*1.25,1500),'Your range',false);
 }
@@ -1426,6 +1461,34 @@ if(e.target.name==='ad-type'){adType();var ti=TI[e.target.value];if(ti&&!SH.id)$
 });
 $('#sheet').addEventListener('submit',function(e){if(e.target.id==='ad-form')saveSheet(e)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('#sheet').classList.contains('hide'))closeSheet()});
+}
+/* ---------- reference objects ---------- */
+var REF='switch';
+var REFS={
+switch:{n:'your light switch plate',tag:'light switch',w:2.75,h:4.5,acc:'±1 in'},
+outlet:{n:'your outlet cover',tag:'outlet cover',w:2.75,h:4.5,acc:'±1 in'},
+brick:{n:'3 brick courses (8 in)',tag:'3 brick rows = 8 in',h:8,hOnly:true,acc:'±¾ in'},
+paper:{n:'a sheet of paper',tag:'paper sheet',w:8.5,h:11,acc:'±½ in'},
+tape:{n:'a tape measure',tag:'tape',acc:'±¼ in'}
+};
+var REFKEYS=['switch','outlet','brick','paper','tape'];
+function tight(){return MODE==='photo'&&!!M.base&&(REF==='paper'||REF==='tape')}
+function RF(){return tight()?[.95,1.06]:[.9,1.12]}
+function setRefRadios(){var r=$('#ref-pick-'+REFKEYS.indexOf(REF));if(r)r.checked=true}
+function syncRefUI(){var ph=MODE==='photo'&&M.base;$('#win-land-wrap').classList.toggle('hide',!(ph&&REF==='paper'));$('#tape-wrap').classList.toggle('hide',!(ph&&REF==='tape'))}
+function uploadRef(k,w,h){
+var bw=.05*w,bh=bw*4.5/2.75,x=.84*w,y=.42*h;
+if(k==='outlet')y=.68*h;
+if(k==='brick'){bw=.08*w;bh=.12*h;x=.82*w;y=.28*h}
+if(k==='paper'){bw=.11*w;bh=bw*11/8.5;x=.78*w;y=.2*h}
+return [[x,y],[x+bw,y],[x+bw,y+bh],[x,y+bh]];
+}
+function uploadWin(w,h){return [[.08*w,.1*h],[.7*w,.1*h],[.7*w,.9*h],[.08*w,.9*h]]}
+function setRef(k){
+REF=k;setRefRadios();
+if(M.base&&k!=='tape')M.paper=M.isSample?getSample().refQuad(k,$('#win-landscape').checked):uploadRef(k,M.base.width,M.base.height);
+if(k==='tape'){var d=curDims();if(!$('#tape-in').value&&d)$('#tape-in').value=d.w}
+syncRefUI();recalc();
 }
 /* ---------- router ---------- */
 var ROUTES=['start','window','shower','estimate','book','biz-request','biz-portal'],first=true,AUD='home';
